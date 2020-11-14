@@ -1,3 +1,9 @@
+@coffes.map do |coffee|
 {
-  message: "index hello"
+  id: coffee.id,
+  name: coffee.name,
+  price: coffee.price,
+  size: coffee.size,
+  description: coffee.description
 }
+end
