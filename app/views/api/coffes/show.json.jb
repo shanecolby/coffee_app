@@ -1,3 +1,7 @@
 {
-  message: "show hello"
+  id: @coffee.id,
+  name: @coffee.name,
+  price: @coffee.price,
+  size: @coffee.size,
+  description: @coffee.description
 }

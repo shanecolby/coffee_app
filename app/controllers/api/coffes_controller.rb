@@ -5,6 +5,7 @@ class Api::CoffesController < ApplicationController
   end
 
   def show
+    @coffee = Coffee.find_by(id: params[:id])
     render "show.json.jb"
   end
 end
