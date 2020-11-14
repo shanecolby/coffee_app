@@ -10,11 +10,20 @@ class Api::CoffesController < ApplicationController
   end
 
   def create
+    results = Geocoder.search(params[:address])
+    the_latitude = results.first.coordinates[0]
+    the_longitude = results.first.coordinates[1]
+    p the_latitude
+    
+
     @coffee = Coffee.new(
       name: params[:name], 
       price: params[:price], 
       size: params[:size], 
-      description: params[:description]
+      description: params[:description],
+      address: params[:address],
+      latitude: the_latitude,
+      longitude: the_longitude,
     )
     @coffee.save
     render "show.json.jb"

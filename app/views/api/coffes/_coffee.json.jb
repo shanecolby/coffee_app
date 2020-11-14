@@ -5,5 +5,8 @@
   size: coffee.size,
   description: coffee.description,
   tax: number_to_currency(coffee.tax),
-  total: number_to_currency(coffee.total)
+  total: number_to_currency(coffee.total),
+  address: coffee.address,
+  latitude: coffee.latitude,
+  longitude: coffee.longitude
 }
