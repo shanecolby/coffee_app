@@ -1,0 +1,9 @@
+{
+  id: coffee.id,
+  name: number_to_currency(coffee.name),
+  price: coffee.price,
+  size: coffee.size,
+  description: coffee.description,
+  tax: number_to_currency(coffee.tax),
+  total: number_to_currency(coffee.total)
+}

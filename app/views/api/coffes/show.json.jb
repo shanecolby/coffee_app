@@ -5,3 +5,5 @@
   size: @coffee.size,
   description: @coffee.description
 }
+
+render partial: "coffee.json.jb", locals: {coffee: @coffee}
