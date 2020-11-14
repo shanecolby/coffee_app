@@ -11,11 +11,31 @@ class Api::CoffesController < ApplicationController
 
   def create
     @coffee = Coffee.new(
-      name: "The DARK-SIDE", 
-      price: 6.95, 
-      size: "medium", 
-      description: "For those who go against the grain. This is for those who lurk in the shadows."
+      name: params[:name], 
+      price: params[:price], 
+      size: params[:size], 
+      description: params[:description]
     )
+    @coffee.save
     render "show.json.jb"
+  end
+
+  def update
+    @coffee = Coffee.find_by(id: params[:id])
+    
+    @coffee.name = params[:name]  || @coffee.name
+    @coffee.price = params[:price] || @coffee.price
+    @coffee.size = params[:size] || @coffee.size
+    @coffee.description = params[:description] || @coffee.description
+    @coffee.save
+    
+    render "show.json.jb"
+  end
+
+  def destroy
+    @coffee = Coffee.find_by(id: params[:id])
+    @coffee.destroy
+    render json: {message: "Coffee removed"}
+
   end
 end
